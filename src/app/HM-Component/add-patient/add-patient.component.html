@@ -1,0 +1,33 @@
+<div class="center">
+<fieldset>
+<legend>Enter Patient Details</legend>
+<form>
+    <table>
+        <tr>
+            <td>Name: </td>
+            <td><input type="text" [(ngModel)]="patient.name" name="patientName" required/></td>
+        </tr>
+        <tr>
+            <td>Age: </td>
+            <td><input type="text" [(ngModel)]="patient.age" name="patientAge"/></td>
+        </tr>
+        <tr>
+            <td>Date Of Visit: </td>
+            <td><input type="date" [(ngModel)]="patient.dateofVisit" name="patientDateOfVisit"/></td>
+        </tr>
+        <tr>
+            <td>Doctor: </td>
+            <td>
+                <select [(ngModel)]="patient.doctor" name = "pdoctorConsulted" required>
+                    <option class="dropdown-item" disable selected value="undefined">Please Select a Doctor</option>
+                    <option *ngFor="let doctor of doctors" [ngValue]="doctor">{{doctor.name}} - {{doctor.speciality}}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="button" (click)="addPatient()">Add Patient</button></td>
+        </tr>
+    </table>
+</form>
+</fieldset>
+</div>

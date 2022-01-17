@@ -1,0 +1,36 @@
+
+ <form (ngSubmit)="searchPatient()"  class="text-center">
+     <h3>Enter Patient Id for searching...</h3>
+    <input type="text" name="searchPatient" [(ngModel)]="patientSearchValue"/>
+    <button type="submit" >Search</button>
+</form>
+
+<div *ngIf="x!=null" class="text-center container mb-3">
+
+<div *ngIf="patientSelected; else elseBlock" class="text-center">
+    <br><br><br><h2>Patient Details</h2><br>
+    <div>
+        Name: {{patientSelected.name}}
+    </div>
+    <div>
+        Age: {{patientSelected.age}}
+    </div>
+    <div>
+        Date Of Visit: {{patientSelected.dateofVisit}}
+    </div>
+    <div>
+        Doctor: {{patientSelected.doctor.name}} - {{patientSelected.doctor.speciality}}
+    </div>
+    <div *ngIf= "patientsPrescription else elseP" >
+        Prescriptipn:
+        <div>
+            Diagnosis: {{patientsPrescription.diagnosis}}
+        </div>
+        <div>
+            Medicine: {{patientsPrescription.prescription}}
+        </div>
+    </div>
+    <ng-template #elseP ><p style="color:red">Not yet prescribed</p></ng-template>
+</div>
+<br><br><br><ng-template #elseBlock>No Patient Details Found</ng-template>
+</div>

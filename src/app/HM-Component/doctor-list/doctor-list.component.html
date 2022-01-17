@@ -1,0 +1,39 @@
+
+<div class="container text-center">
+
+    <div>
+        <b>Select Doctor for details:</b><br><br>
+        <select [(ngModel)]="doctorSelected" name = "doctorDetails" (change)="onDoctorSelected()">
+            <option class="dropdown-item" disable selected value="undefined">Please Select a Doctor</option>
+            <option *ngFor="let doctor of doctors" [ngValue]="doctor"> {{doctor.name}}-{{doctor.speciality}}</option>
+        </select>
+
+    </div>
+
+
+    <div *ngIf="doctorSelected" class="text-center">
+        <h2>Doctor Details</h2>
+        <div>
+            Name: {{doctorSelected.name}}
+        </div>
+        <div>
+            Age: {{doctorSelected.age}}
+        </div>
+        <div>
+            Speciality: {{doctorSelected.speciality}}
+        </div>
+        <div>
+            No of Patients: {{doctorSelected.patientsCount}}
+        </div>
+
+        
+        <div *ngIf="patients.length>0">
+            Patients yet to be Prescribed: 
+            <select [(ngModel)]="patientSelected" name = "patientsList"  (change)="onPatientSelected()">
+                <option class="dropdown-item" disable selected value="undefined">Please Select a Patient</option>
+                <option *ngFor="let patient of patients" [ngValue]="patient"> {{patient.name}}</option>
+            </select>
+        </div>
+    </div>
+
+</div>

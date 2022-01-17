@@ -1,0 +1,21 @@
+<div class="center">
+<fieldset>
+<legend>New Prescription</legend> <br><br>
+<form class="text-center">
+    <div>
+        <b>Prescribed By:   </b> <label> {{prescription.doctor.name}}</label><br>
+    </div>
+    <div>
+        <b>Prescribed To:   </b> <label> {{prescription.patient.name}}</label><br>
+    </div>
+    <div>
+        <b>Diagnosis:   </b> <input type="text" [(ngModel)]="prescription.diagnosis" name="patientName"/><br><br>
+    </div>
+    <div>
+        <b>Medicine:   </b> <input type="text" [(ngModel)]="prescription.prescription" name="patientAge"/><br><br>
+    </div>
+    <button type="button" (click)="addPrescription()">Add Prescription</button>
+</form>
+
+</fieldset>
+</div>
